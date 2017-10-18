@@ -18508,10 +18508,11 @@ with pkgs;
   coq_8_5 = callPackage ../applications/science/logic/coq {
     version = "8.5pl3";
   };
-  coq_8_6 = callPackage ../applications/science/logic/coq {};
-  coq_8_7 = callPackage ../applications/science/logic/coq {
-    version = "8.7+beta2";
+  coq_8_6 = callPackage ../applications/science/logic/coq {
+    version = "8.6.0";
   };
+  coq_8_7 = callPackage ../applications/science/logic/coq {};
+
   coq_HEAD = callPackage ../applications/science/logic/coq/HEAD.nix {};
 
   mkCoqPackages_8_4 = self: let callPackage = newScope self; in {
@@ -18570,7 +18571,8 @@ with pkgs;
   coqPackages_8_4 = mkCoqPackages_8_4 coqPackages_8_4;
   coqPackages_8_5 = mkCoqPackages coqPackages_8_5 coq_8_5;
   coqPackages_8_6 = mkCoqPackages coqPackages_8_6 coq_8_6;
-  coqPackages = coqPackages_8_6;
+  coqPackages_8_7 = mkCoqPackages coqPackages_8_7 coq_8_7;
+  coqPackages = coqPackages_8_7;
   coq = coqPackages.coq;
 
   coq2html = callPackage ../applications/science/logic/coq2html {
